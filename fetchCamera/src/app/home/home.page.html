@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      FetchCamera
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-row style="justify-content: center;">
+    <ion-select [(ngModel)]="selectDevice" placeholder="デバイスを選択">
+      <ion-select-option *ngFor="let device of this.devices">
+        {{device}}
+      </ion-select-option>
+    </ion-select>
+  </ion-row>
+
+  <ion-row style="justify-content: end;">
+    <ion-button [disabled]="this.selectDevice === undefined" (click)="onClickBtn()"
+      color="{{this.connect ? 'danger' : 'primary'}}">
+      {{this.connect ? "切断" : "接続"}}
+    </ion-button>
+  </ion-row>
+
+  <div id="container">
+    <ion-row class="top-down">
+      <app-CameraCtrl [Direction]="FORWARD"></app-CameraCtrl>
+    </ion-row>
+
+    <ion-row class="left-right">
+      <app-CameraCtrl [Direction]="LEFT"></app-CameraCtrl>
+      <app-CameraCtrl [Direction]="RIGHT"></app-CameraCtrl>
+    </ion-row>
+
+    <ion-row class="top-down">
+      <app-CameraCtrl [Direction]="BACK"></app-CameraCtrl>
+    </ion-row>
+
+
+  </div>
+</ion-content>

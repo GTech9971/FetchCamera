@@ -1,0 +1,7 @@
+{
+  "name": "fetchCamera",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
